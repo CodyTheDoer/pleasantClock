@@ -29,23 +29,30 @@ SIX MATCHING
 AA AA AA
 */
 
-const plesantTimes = {
-  templetTwo1: 'ABABAB',
-  templetTwo2: 'ABBBBA',
-  templetTwo3: 'ABAABA',
-  templetTwo4: 'AABBAA',
-  templetTwo5: 'ABBAAB',
-  templetThree1: 'ABCABC',
-  templetThree2: 'ABCCBA',
-  templetThree3: 'AABBCC',
-  templetFour1: 'ABBBBA',
-  templetFour2: 'AABBAA',
-  templetFour3: 'ABCCCC',
-  templetFour4: 'AABBBB',
-  templetFour5: 'AABCAA',
-  templetFive1: 'ABBBBB',
-  templetFive1: 'BABBBB',
-  templetSix1: 'AAAAAA',
+const pleasantTimesTemplate = [
+  'ABABAB',
+  'ABBBBA', 
+  'ABAABA', 
+  'AABBAA', 
+  'ABBAAB', 
+  'ABCABC', 
+  'ABCCBA', 
+  'AABBCC', 
+  'ABBBBA', 
+  'AABBAA', 
+  'ABCCCC', 
+  'AABBBB', 
+  'AABCAA', 
+  'ABBBBB', 
+  'BABBBB', 
+  'AAAAAA',
+];
+
+const timeLogic = () => {
+  let time = checkTime().join("");
+  for(i=0; i<time.length; i++){
+    time[i]
+  }
 };
 
 const checkTime = () => {
@@ -66,4 +73,4 @@ const checkTime = () => {
   return timeArray;
 };
 
-setInterval(checkTime(), 1*1000);
+setInterval(timeLogic, 1*1000);
