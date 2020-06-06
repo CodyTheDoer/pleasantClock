@@ -1,58 +1,51 @@
-/*
-What dictates a plesant time.
-in blocks of HH MM SS.
-
-TWO MATCHING
-AB AB AB
-AB BB BA
-AB AA BA
-AA BB AA
-AB BA AB
-
-THREE MATCHING
-AB CA BC
-AB CC BA
-AA BB CC
-
-FOUR MATCHING
-AB BB BA
-AA BB AA
-AB CC CC
-CC AB CC
-AA BB BB
-
-FIVE MATCHING
-AB BB BB
-BA BB BB 
-
-SIX MATCHING
-AA AA AA
-*/
-
 const pleasantTimesTemplate = [
-  'ABABAB',
-  'ABBBBA', 
-  'ABAABA', 
-  'AABBAA', 
-  'ABBAAB', 
-  'ABCABC', 
-  'ABCCBA', 
-  'AABBCC', 
-  'ABBBBA', 
-  'AABBAA', 
-  'ABCCCC', 
-  'AABBBB', 
-  'AABCAA', 
-  'ABBBBB', 
-  'BABBBB', 
-  'AAAAAA',
+  "000000", 
+  "010010", 
+  "011110", 
+  "011115", 
+  "010101", 
+  "010301", 
+  "011044", 
+  "011335", 
+  "002200", 
+  "011001", 
+  "012001",
+  "012002",
+  "012012", 
+  "012021", 
+  "012210", 
+  "002244", 
+  "011110", 
+  "002200", 
+  "002222", 
+  "002300", 
+  "011111", 
+  "010000", 
+  "011011", 
+  "011311",
+  "011344", 
+  "011331", 
+  "011300", 
+  "012301",
+  "012310",
+  "010310",
+  "010301",
 ];
 
 const timeLogic = () => {
   let time = checkTime().join("");
+  let compare = [];
   for(i=0; i<time.length; i++){
-    time[i]
+    compare.push(time.indexOf(time.charAt([i])));
   }
+  for(key of pleasantTimesTemplate){
+    if(key === compare.join("")){
+      let currentTime = Array.from(checkTime());
+      setTime(currentTime[0],currentTime[1],currentTime[2])
+      console.log(currentTime);
+    }
+  }
+  return compare;
 };
 
 const checkTime = () => {
@@ -71,6 +64,13 @@ const checkTime = () => {
   }
   let timeArray = [hour,minute,second];
   return timeArray;
+};
+
+const setTime = (hour, minute, second) => {
+  let clock = document.getElementsByClassName("clockNum");
+  clock[0].innerText = hour;
+  clock[1].innerText = minute;
+  clock[2].innerText = second;
 };
 
 setInterval(timeLogic, 1*1000);
