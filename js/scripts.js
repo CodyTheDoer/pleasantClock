@@ -1,51 +1,53 @@
-const pleasantTimesTemplate = [
-  "000000", 
-  "010010", 
-  "011110", 
-  "011115", 
-  "010101", 
-  "010301", 
-  "011044", 
-  "011335", 
-  "002200", 
-  "011001", 
-  "012001",
-  "012002",
-  "012012", 
-  "012021", 
-  "012210", 
-  "002244", 
-  "011110", 
-  "002200", 
-  "002222", 
-  "002300", 
-  "011111", 
-  "010000", 
-  "011011", 
-  "011311",
-  "011344", 
-  "011331", 
-  "011300", 
-  "012301",
-  "012310",
-  "010310",
-  "010301",
-];
+const pleasantCheck = () => {
+  let timeArray = Array.from(checkTime());
+  let hour = timeArray[0];
+  let minute = timeArray[1];
+  let second = timeArray[2];
+  let timeArraySplit1 = timeArray[0] + timeArray[1].split("").shift();
+  let timeArraySplit2 = timeArray[1].split("").pop() + timeArray[2];
+  let pleasantCounter = 0;
+  let pleasantArrays = [
+    ["12", "34", "56"],
+    ["01", "23", "45"],
+    ["01", "31", "46"],
+  ]
+ 
+  // [12, 12, 12]
+  // [10, 10, 10]
+  if(hour === minute && hour === second){pleasantCounter++}; 
+  
+  // [01, 54, 10]
+  // [12, 35, 21]
+  if(hour === second.split("").reverse().join("")){pleasantCounter++};
 
-const timeLogic = () => {
-  let time = checkTime().join("");
-  let compare = [];
-  for(i=0; i<time.length; i++){
-    compare.push(time.indexOf(time.charAt([i])));
+  // [12, 21, 12]
+  // [05, 50, 05]
+  if(hour === second && hour === minute.split("").reverse().join("")){pleasantCounter++}; 
+
+  // [12, 44, 12]
+  // [03, 22, 03]
+  if(hour === second && minute.split("")[0] === minute.split("")[1]){pleasantCounter++}; 
+    
+  // [11, 22, 33]
+  // [11, 55, 00]
+  if(hour.split("")[0] === hour.split("")[1] && minute.split("")[0] === minute.split("")[1] && second.split("")[0] === second.split("")[1]){pleasantCounter++};
+
+  // [233, 233]
+  // [124, 124]
+  if(timeArraySplit1 === timeArraySplit2){pleasantCounter++};
+
+  // [213, 312]
+  // [124, 421]
+  if(timeArraySplit1 === timeArraySplit2.split("").reverse().join("")){pleasantCounter++};
+
+  for(i=0; i<pleasantArrays.length; i++){
+    if(timeArray === pleasantArrays[i]){pleasantCounter++};
+  };
+
+  if(pleasantCounter > 0){
+    setTime(timeArray[0], timeArray[1], timeArray[2]);
+    console.log(timeArray);
   }
-  for(key of pleasantTimesTemplate){
-    if(key === compare.join("")){
-      let currentTime = Array.from(checkTime());
-      setTime(currentTime[0],currentTime[1],currentTime[2])
-      console.log(currentTime);
-    }
-  }
-  return compare;
 };
 
 const checkTime = () => {
@@ -73,4 +75,9 @@ const setTime = (hour, minute, second) => {
   clock[2].innerText = second;
 };
 
-setInterval(timeLogic, 1*1000);
+setInterval(pleasantCheck, 1*1000);
+
+window.onload = ()=>{
+  let currentTime = Array.from(checkTime());
+  setTime(currentTime[0],currentTime[1],currentTime[2]);
+}
