@@ -1,9 +1,11 @@
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   margin: 0;
   padding: 0;
-  background-color: aquamarine;
+  background-color: #d9d1e6;
   text-align: center;
   font-family: 'Oswald', sans-serif;
+  color: #515c8a;
+
 }
 
 #heading{
@@ -15,7 +17,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
     width: fit-content;
     display: flex;
     margin: auto;
-    background-color: #175440;
+    background-color: #515c8a;
     border-radius: 250px;
 }
 
@@ -24,6 +26,6 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
     padding: 25px;
     margin-left: 10px;
     margin-right: 10px;
-    color: aquamarine;
+    color: #7fcdd9;
     font-size: 22vw;
 }
