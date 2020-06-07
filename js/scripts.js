@@ -1,3 +1,9 @@
+let pleasantArrays = [
+  ["12", "34", "56"],
+  ["01", "23", "45"],
+  ["01", "58", "20"],
+]
+
 const pleasantCheck = () => {
   let timeArray = Array.from(checkTime());
   let hour = timeArray[0];
@@ -6,11 +12,6 @@ const pleasantCheck = () => {
   let timeArraySplit1 = timeArray[0] + timeArray[1].split("").shift();
   let timeArraySplit2 = timeArray[1].split("").pop() + timeArray[2];
   let pleasantCounter = 0;
-  let pleasantArrays = [
-    ["12", "34", "56"],
-    ["01", "23", "45"],
-    ["01", "31", "46"],
-  ]
  
   // [12, 12, 12]
   // [10, 10, 10]
