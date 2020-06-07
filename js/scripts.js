@@ -42,7 +42,7 @@ const pleasantCheck = () => {
   if(timeArraySplit1 === timeArraySplit2.split("").reverse().join("")){pleasantCounter++};
 
   for(i=0; i<pleasantArrays.length; i++){
-    if(timeArray === pleasantArrays[i]){pleasantCounter++};
+    if(timeArray === pleasantArrays[i]){setTime(timeArray[0], timeArray[1], timeArray[2]);};
   };
 
   if(pleasantCounter > 0){

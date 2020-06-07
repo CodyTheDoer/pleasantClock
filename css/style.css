@@ -1,0 +1,23 @@
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-size: 22vw;
+  background-color: aquamarine;
+}
+
+#clockBody{
+    width: fit-content;
+    display: flex;
+    margin: auto;
+    margin-top: 200px;
+    background-color: #175440;
+    border-radius: 250px;
+}
+
+.clockNum{
+    text-align: center;
+    padding: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: aquamarine;
+}
