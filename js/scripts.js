@@ -28,6 +28,14 @@ const pleasantCheck = () => {
   // [12, 44, 12]
   // [03, 22, 03]
   if(hour === second && minute.split("")[0] === minute.split("")[1]){pleasantCounter++}; 
+
+  // [12, 45, 12]
+  // [03, 21, 03]
+  if(hour === second && minute % 3){pleasantCounter++}; 
+
+  // [12, 45, 21]
+  // [03, 21, 30]
+  if(hour === second.split("").reverse().join("") && minute % 3){pleasantCounter++}; 
     
   // [11, 22, 33]
   // [11, 55, 00]
