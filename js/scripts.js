@@ -1,7 +1,6 @@
 let pleasantArrays = [
   ["12", "34", "56"],
   ["01", "23", "45"],
-  ["01", "58", "20"],
 ]
 
 const pleasantCheck = () => {
@@ -42,7 +41,11 @@ const pleasantCheck = () => {
   if(timeArraySplit1 === timeArraySplit2.split("").reverse().join("")){pleasantCounter++};
 
   for(i=0; i<pleasantArrays.length; i++){
-    if(timeArray === pleasantArrays[i]){setTime(timeArray[0], timeArray[1], timeArray[2]);};
+    let timeCheckCounter = 0;
+    if(timeArray[0] === pleasantArrays[i][0]){timeCheckCounter++};
+    if(timeArray[1] === pleasantArrays[i][1]){timeCheckCounter++};
+    if(timeArray[2] === pleasantArrays[i][2]){timeCheckCounter++};
+    if(timeCheckCounter === 3){setTime(timeArray[0], timeArray[1], timeArray[2])};
   };
 
   if(pleasantCounter > 0){
